@@ -7,3 +7,9 @@
 
 // arrays, objects, funcions
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//memory on js 
+
+// stack(primitive), heap(non-primitive).
+
