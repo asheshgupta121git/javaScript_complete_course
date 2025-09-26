@@ -31,40 +31,40 @@ if(condition){
 
 
 
-let isLoggedIn = false;
-let haveTempCard = true;
+// let isLoggedIn = false;
+// let haveTempCard = true;
 
-if(isLoggedIn){
-    console.log(`user is logged in`)
-}else if(haveTempCard){
-    console.log(`have temperorary care also logged in `)
-}
-else{
-    console.log(`user not logged in`)
-}
+// if(isLoggedIn){
+//     console.log(`user is logged in`)
+// }else if(haveTempCard){
+//     console.log(`have temperorary care also logged in `)
+// }
+// else{
+//     console.log(`user not logged in`)
+// }
 
 //---------------------------------------------------------
 
 //wwitch case
 
-let condition = 31;
+// let condition = 31;
 
-switch(condition){
-    case 1:
-        console.log('sunday')
-        break;
-    case 2:
-        console.log('monday');
-        break;
-    case 3:
-        console.log('tuesday');
-        break;
-    case 4:
-        console.log('wednesday');
-        break;
-    default:
-        console.log('enter the correct value ');
-}
+// switch(condition){
+//     case 1:
+//         console.log('sunday')
+//         break;
+//     case 2:
+//         console.log('monday');
+//         break;
+//     case 3:
+//         console.log('tuesday');
+//         break;
+//     case 4:
+//         console.log('wednesday');
+//         break;
+//     default:
+//         console.log('enter the correct value ');
+// }
 
 
 //till now we are working on the value of true and flase 
@@ -95,16 +95,28 @@ switch(condition){
 
 */
 
-const userEmail = " ";
+// const userEmail = " ";
 
-if(userEmail){
-    console.log("got user email");
-}else{
-    console.log("dont have user email");
-}
+// if(userEmail){
+//     console.log("got user email");
+// }else{
+//     console.log("dont have user email");
+// }
 
 
 //nullish coalescing operator (??): null undefined
 
+let val1;
 
+// val1 = 5 ?? 10; // 5
 
+// val1 = null ?? 10 //10
+val1 = undefined ?? 15;
+console.log(val1)
+
+// the null coalescing operator and terniary operator is different things. 
+
+//terinary operator
+// condition? true : false; 
+let iceTea = 100;
+iceTea < 100 ?console.log("price is less than 100"): console.log("price is greater than 100");
