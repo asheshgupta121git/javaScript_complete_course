@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background color changer</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #container{
+            text-align: center;
+            height: 400px;
+            width: 400px;
+
+            padding: 30px 30px;
+        }
+        .button{
+            height: 50px;
+            width: 50px;
+            border: 2px solid black;
+            display: inline-block;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        #gray{
+            background-color: gray;
+        }
+        #green{
+            background-color: green;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+        <!-- color changer -->
+        <h1>color changer</h1>
+        <span class="button" id="gray"></span>
+        <span class="button" id="green"></span>
+        <span class="button" id="blue"></span>
+        <span class="button" id="yellow"></span>
+        <h2>
+            try to click to change the    <span> background color of the page.</span>
+        </h2>
+        
+    </div>
+
+    <script>
+
+        let btns = document.querySelectorAll('.button');
+        let body = document.querySelector('body');
+        btns.forEach((btn)=>{
+          btn.addEventListener('click',(e)=>{
+
+            if(e.target.id === 'gray'){
+                body.style.backgroundColor = e.target.id;
+            }
+                if(e.target.id === 'blue'){
+                body.style.backgroundColor = e.target.id;
+            }
+                if(e.target.id === 'yellow'){
+                body.style.backgroundColor = e.target.id;
+            }
+            if(e.target.id === 'green'){
+                body.style.backgroundColor = e.target.id;
+            }
+          })  
+        })
+
+    </script>
+    
+</body>
+</html>
