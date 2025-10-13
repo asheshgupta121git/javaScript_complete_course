@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM || ashesh </title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>javascript</li>
+    </ul>
+
+    <script>
+        //target to add the list item 
+        function addList(name){
+            const li = document.createElement('li');
+            li.innerHTML = `${name}`;
+            let ul = document.querySelector(".language");
+            ul.appendChild(li);
+        }   
+
+        addList("java");
+        addList("Python");
+
+        //OPTIMIZED APPROACH
+
+        function optmizedList(name){
+            const li = document.createElement('li');
+            li.appendChild(document.createTextNode(name));
+            document.querySelector('.language').appendChild(li);
+        }
+        optmizedList("c++");
+        optmizedList("c")
+
+        //Edit value
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM || ashesh</title>
+</head>
+<body  style="background-color: #212121; color: #fff;">
+    
+<script>
+    let div = document.createElement('div');
+    div.innerHTML = "<h1>hello</h1>";
+    div.style.color = "green";
+    div.style.backgroundColor = "orange";
+    div.id = "head";
+    let bdy  = document.querySelector('body');
+    bdy.appendChild(div);
+
+</script>
+
+</body>
+</html>
