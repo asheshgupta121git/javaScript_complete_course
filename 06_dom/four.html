@@ -26,13 +26,30 @@
 
         function optmizedList(name){
             const li = document.createElement('li');
-            li.appendChild(document.createTextNode(name));
+            li.appendChild(document.createTextNode(name));// here we just append child.
             document.querySelector('.language').appendChild(li);
         }
         optmizedList("c++");
-        optmizedList("c")
+        optmizedList("goLang")
 
         //Edit value
+        
+        const secondLang = document.querySelector('li:nth-child(2)');
+        // secondLang.innerHTML = "Mojo";
+        // another approach.
+        const newLi =  document.createElement('li');
+        newLi.textContent = "Mojo";
+        secondLang.replaceWith(newLi)
+        
+        const fristlang =  document.querySelector('li:first-child');
+        fristlang.outerHTML = '<li>Typescript</li>';
+
+
+
+        //remove 
+
+        const lastLang = document.querySelector("li:last-child");
+        lastLang.remove();
         
     </script>
 </body>
