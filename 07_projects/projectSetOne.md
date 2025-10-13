@@ -161,3 +161,80 @@
 </html>
 
 ```
+
+
+## Loal Timer
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>timer</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display:flex;
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            background-color:#111;
+        }
+
+        .center{
+            height: 200px;
+            width: 200px;
+            background-color: gray;
+            border-radius: 20px;
+            text-align: center;
+            padding: 20px 10px;
+            box-shadow: 10px 5px 10px #fff;
+        }
+        #banner{
+            font-size: larger;
+            font-weight: bolder;
+            color: aliceblue;
+            margin-bottom: 30px;
+        }
+
+        #clock{
+            height:80px;
+            width: 130px;
+            background-color: rgb(0, 0, 0);
+            margin-top: 50px;
+            margin-left: 20px;
+            box-shadow: 10px 10px #fff;
+            border-radius: 20px;
+            color: #fff;
+            padding:30px;
+
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="center">
+        <div id="banner"><span>TIME</span></div>
+        <div id="clock"></div>
+    </div>
+
+    <script>
+        let clock = document.querySelector('#clock');
+        
+        setInterval(function(){
+            let data  = new Date();
+            clock.innerHTML = data.toLocaleTimeString();
+        },1000);
+
+    </script>
+</body>
+</html>
+````
