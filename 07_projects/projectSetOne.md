@@ -238,3 +238,215 @@
 </body>
 </html>
 ````
+
+
+## number gussing game 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guss number</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+        }
+
+        .wrapper{
+            height: 400px;
+            width: 300px;
+            padding: 10px 5px;
+            text-align: center;
+            background-color: gray;
+            color: white;
+            box-shadow: 5px 5px 10px white;
+            border-radius: 10px;
+
+            }
+        h1{
+            margin-bottom: 3px;
+        }
+        p{
+            margin: 5px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        label{
+            margin-bottom: 5px;
+            font-size: 30px;
+            
+        }
+        #guessField{
+            max-width: 200px;
+            padding: 5px;
+            border: 1px solid white;
+            margin-bottom: 8px;
+            border-radius: 10px;
+            outline:none;
+        }
+
+        #subt, .button{
+            padding: 5px 7px;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            cursor:pointer;
+        }
+        .resultparse{
+            margin-bottom: 5px;
+            margin-top: 5px;
+        }
+        .lowOrHigh{
+            margin-bottom: 5px;
+
+        }
+
+
+    
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>number gussing game</h1>
+        <p>try to guss number between 1 to 100</p>
+        <p>you have 10 attempts to guss the right number</p>
+        <br>
+        <form class="form">
+            <label for="guessField" id="guess">guss a numer</label>
+            <input type="text" id="guessField" class="guessField">
+            <input type="button" value="submit guss" id="subt" class="guessSubmit">
+        </form>
+
+        <div class="resultparse">
+            <p>previous guesses:  <span class="guesses"></span></p>
+            <p>gusess remaining <span class="lastResult">10</span></p>
+            <p class="lowOrHigh"></p>
+        </div>
+    </div>
+
+    <script>
+
+        // target to gereate random number berween 1 ot 100
+        let randomNum = Math.floor(Math.random()*100)+1;
+        
+        const submmitBtn = document.querySelector('#subt');
+        const userInput = document.querySelector('#guessField');
+        const userPrevGuss = document.querySelector('.guesses');
+        const lastResult = document.querySelector('.lastResult');
+        const lowOrHigh = document.querySelector('.lowOrHigh');
+        const resultPara = document.querySelector('.resultparse');
+
+        let p = document.createElement('p');
+
+
+        let prevGuss = [];
+        let numGuss = 1;
+        let playGame = true;
+
+        if(playGame){
+            console.log(randomNum)
+            submmitBtn.addEventListener('click', function(e){
+                e.preventDefault();
+                const guess = parseInt(userInput.value);
+                validateGuess(guess);
+                userInput.value = "";
+            })
+        }
+
+
+        function validateGuess(guess){
+            //to check he guss valid number 
+            if(isNaN(guess)){
+                alert("please enter a valid number");
+            }else if(guess<1  || guess >100){
+                alert("please enter a valid number in range of 1 to 100");
+            }else{
+                prevGuss.push(guess);
+                if(numGuss === 11){
+                    displayGuess(guess);
+                    displayMSG(`game over. random number ${randomNum}`);
+                    endGame();
+                }else{
+                    displayGuess(guess);
+                    checkGuess(guess);
+                }
+            }
+        }
+
+        function checkGuess(guess){
+            //to check if the number is equeal to random numebr or greater than or less than
+
+            if(guess === randomNum){
+                displayMSG('you gussed right');
+                endGame();
+            }else if(guess < randomNum){
+                displayMSG(`Number is too low`);
+            }else if(guess > randomNum){
+                displayMSG(`number is too high`);
+            }
+        }
+
+        function displayGuess(guess){
+            //  display message
+            userPrevGuss.innerHTML += `${guess} `;
+            numGuss++;
+            lastResult.innerHTML = `${11 - numGuss}`;
+        }
+
+        function displayMSG(msg){
+            //display msg in low or high or equal
+            lowOrHigh.innerHTML = `<h2>${msg}</h2>`;
+        }
+
+        function endGame(){
+            //close the game is guess is right
+            userInput.value = "";
+            userInput.setAttribute('disabled','');
+            p.classList.add('button');
+            p.innerHTML = `<h5 id='newGame'>start newgame</h5>`;
+            resultPara.appendChild(p);
+            playGame = false;
+            newGame();
+        }
+
+        function newGame(){
+            //start new game.
+
+            const newGameBtn = document.querySelector('#newGame');
+            newGameBtn.addEventListener('click', function (e){
+                randomNum =  Math.floor(Math.random()*100)+1;
+                console.log(randomNum);
+                prevGuss = [];
+                numGuss = 1;
+                userPrevGuss.innerHTML = '';
+                lastResult.innerHTML = `${11 - numGuss}`;
+                userInput.removeAttribute('disabled');
+                resultPara.removeChild(p);
+                lowOrHigh.innerHTML = '';
+                playGame = true;
+
+                console.log("btn click");
+            })
+        }
+
+    </script>
+</body>
+</html>
+```
