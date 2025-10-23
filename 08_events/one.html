@@ -1,15 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-    
-    </style>
 </head>
-<body>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop"
+                    src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt="photoshop"></li>
+            <li><img width="200px" id="japan"
+                    src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="river"
+                    src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="owl"
+                    src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><img width="200px" id="prayer"
+                    src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load"
+                    alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+    <script>
+        //not the feasible approach
+        // document.getElementById('owl').onclick = function(){
+        //     alert('owl click')
+        // }
+
+                //---> some events uses--->
+                    //type. timestamp. defaultprevented
+                    // target, srcElement, currentElement
+                    // clientX, xlientY, screenX, screnY
+                    //altkey, ctrlkey, shiftkey, keycode
+
+        // document.getElementById('images').addEventListener('click', function(e){
+        //     console.log(e);
+        //     alert('click inside the ul');
+
+        // },false) 
+        //here this false is event propogation which is use for 2 cases --> event bubbling and --> event captruing.
+    
+        // document.getElementById('owl').addEventListener('click', function (e) {
+        //         alert('click inside the owl');
+        //         //to stop bubbling er have stop propogation
+        //         e.stopPropagation();
+        // }, false);
+        // document.getElementById('google').addEventListener('click', function (e) {
+        //         console.log("google cicked")
+        //         //to stop bubbling er have stop propogation
+        //         e.preventDefault();
+        // }, false);
 
 
+
+        //task to remove image when we click on it.
+
+        document.querySelector('#images').addEventListener('click', function(e){
+            // console.log(e.target.parentNode);
+            let img = e.target.parentNode;
+            // img.remove();
+            // console.log("images cilcked");
+            //in some old places it look this this code
+            img.parentNode.removeChild(img);
+        })
+
+
+    </script>
 </body>
 </html>
