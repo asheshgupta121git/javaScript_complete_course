@@ -450,3 +450,140 @@
 </body>
 </html>
 ```
+
+## DJ BALL
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #ball {
+        height: 200px;
+        width: 200px;
+        border: 2px solid black;
+        border-radius: 50%;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DJ ball</h1>
+
+    <p id="ball"></p>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+      //generate random color
+
+      function randomColor() {
+        let hexcode = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += hexcode[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      //selecting start
+      let id;
+      document.querySelector("#start").addEventListener("click", function () {
+        if (!id) {
+          id = setInterval(function () {
+            document.querySelector("#ball").style.backgroundColor =
+              randomColor();
+          }, 200);
+        }
+      });
+
+      //stop button
+      document.querySelector("#stop").addEventListener("click", function () {
+        clearInterval(id);
+        id = null;
+      });
+    </script>
+  </body>
+</html>
+
+
+```
+
+## key&key-Code
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        width: 100%;
+        background-color: black;
+        color: wheat;
+        font-size: 30px;
+        font-family: "Courier New", Courier, monospace;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      table {
+        width: 70%;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd; 
+      }
+
+      th {
+        background-color: #bbb; 
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="insert">press key and see magic</div>
+  </body>
+
+  <script>
+    let insert = document.getElementById("insert");
+    window.addEventListener("keydown", (e) => {
+      insert.innerHTML = `
+        <table>
+  <tr>
+    <th>key</th>
+    <th>keycode</th>
+    <th>code</th>
+  </tr>
+  <tr>
+    <td>${e.key === " " ? "space" : e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+</table>
+        `;
+    });
+  </script>
+</html>
+
+```

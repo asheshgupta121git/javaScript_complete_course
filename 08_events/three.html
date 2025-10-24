@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>events</title>
+</head>
+
+<body>
+    <h1>ashesh gupta</h1>
+
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+
+    <script>
+        const sayDate = function(){
+            console.log("ashesh", Date.now());
+        }
+        let id; 
+        
+        document.querySelector('#start')
+        .addEventListener('click', () => {
+            if(!id){
+                id = setInterval(sayDate, 1000);
+            }
+            console.log("start clicked");
+        })
+
+       document.getElementById('stop')
+       .addEventListener('click',()=>{
+        clearInterval(id);
+        id = null;
+        console.log('stop clicked');
+       })
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+</head>
+<body>
+    <h1>ashesh gupta</h1>
+        <button>stop</button>
+
+
+    <script>
+        const hi = function(){
+            console.log("ashesh");
+             document.querySelector('h1')
+                .innerHTML = 'rahul';
+        }
+        const change = setTimeout(hi, 2000);
+        console.log(change);
+        //it is used to stop the setinterval
+        document.querySelector('button')
+        .addEventListener('click', function(){
+            clearTimeout(change);
+            console.log('stop clicked');
+        })
+
+       
+
+
+
+    </script>
+</body>
+</html>

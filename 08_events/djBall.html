@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        text-align: center;
+      }
+      #ball {
+        height: 200px;
+        width: 200px;
+        border: 2px solid black;
+        border-radius: 50%;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>DJ ball</h1>
+
+    <p id="ball"></p>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+
+    <script>
+      //generate random color
+
+      function randomColor() {
+        let hexcode = "0123456789ABCDEF";
+        let color = "#";
+        for (let i = 0; i < 6; i++) {
+          color += hexcode[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      //selecting start
+      let id;
+      document.querySelector("#start").addEventListener("click", function () {
+        if (!id) {
+          id = setInterval(function () {
+            document.querySelector("#ball").style.backgroundColor =
+              randomColor();
+          }, 200);
+        }
+      });
+
+      //stop button
+      document.querySelector("#stop").addEventListener("click", function () {
+        clearInterval(id);
+        id = null;
+      });
+    </script>
+  </body>
+</html>
