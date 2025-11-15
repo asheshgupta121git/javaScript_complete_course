@@ -26,6 +26,9 @@ createUser.prototype.printMe = function(){
     console.log(`score is ${this.score}`)
 }
 
+createUser.prototype.updateBy5 = function(){
+    return this.score+5
+}
 
 const chai = new createUser('chai', 25)
 const tea = new  createUser('tea', 250)
@@ -33,7 +36,7 @@ const tea = new  createUser('tea', 250)
 chai.printMe()
 tea.printMe()
 console.log(chai.increment())
-// console.log(createUser.prototype)
+console.log(tea.updateBy5())
 
 
 /*
